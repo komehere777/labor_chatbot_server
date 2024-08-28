@@ -181,7 +181,7 @@ def profile():
 
     return render_template("user_profile.html", form=form, history=history)
 
-@app.route('/delete_account/<int:history_id>', methods=['POST'])
+@app.route('/delete_account', methods=['POST'])
 @login_required
 def delete_account():
     # 데이터베이스에서 유저 ID 제거
@@ -199,4 +199,4 @@ def delete_chat_data(history_id):
     return jsonify({"success": result})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run('0.0.0.0', port=5001, debug=True)
