@@ -25,6 +25,7 @@ from model import (
     authenticate_user,
     update_user_profile,
     delete_user,
+    delete_chat,
 )
 from bson import ObjectId
 from flask_wtf import FlaskForm
@@ -159,7 +160,7 @@ def history(history_id):
     # 세션에서 유저이름 가져와서 채팅 내역 불러오는 부분 ( current_user 에서 가져와도 됨 )
     history = get_user_chat_historys(session['username']) # 유저의 전체 채팅 내역 로드
     chat = get_user_chat(history_id) # 해당 채팅만 로드
-
+    print(chat)
     return render_template('history.html', history = history, chat = chat)
 
 @app.route("/profile", methods=["GET", "POST"])
@@ -180,7 +181,7 @@ def profile():
 
     return render_template("user_profile.html", form=form, history=history)
 
-@app.route('/delete_account', methods=['POST'])
+@app.route('/delete_account/<int:history_id>', methods=['POST'])
 @login_required
 def delete_account():
     # 데이터베이스에서 유저 ID 제거
@@ -188,5 +189,14 @@ def delete_account():
 
     return redirect(url_for("login"))
 
+@app.route('/delete_chat_data/<int:history_id>', methods=['POST'])
+@login_required
+def delete_chat_data(history_id):
+
+    # 데이터베이스에서 해당 ID의 채팅 history 제거
+    result = delete_chat(history_id)
+
+    return jsonify({"success": result})
+
 if __name__ == "__main__":
-    app.run('0.0.0.0', debug=True, port=5001 )
+    app.run(debug=True)

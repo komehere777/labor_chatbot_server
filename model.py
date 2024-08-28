@@ -213,3 +213,10 @@ def delete_user(user_id):
   result = users.delete_user(user_id)
 
   return result.deleted_count > 0
+
+def delete_chat(history_id):
+  collection = ChatHistory(mongo_connection.db)
+
+  result = collection.delete_chat(history_id)
+
+  return result.deleted_count > 0
