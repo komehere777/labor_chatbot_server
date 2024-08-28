@@ -6,10 +6,10 @@ AI Chatbot
 
 {% block content %}
 <!-- 중앙 채팅 인터페이스 -->
-<div class="flex-grow-1 d-flex flex-column justify-content-center align-items-center text-white" style="background-color: #121212;">
+<div class="flex-grow-1 d-flex flex-column justify-content-center align-items-center text-white h-100 py-3" style="background-color: #121212;">
     <div class="card w-100" style="max-width: 1000px; background-color: #1e1e1e;">
         <div class="card-body d-flex flex-column">
-            <div id="chat-window" class="flex-grow-1 overflow-auto mb-3 p-3 border rounded" style="background-color: #333; height: 600px;">
+            <div id="chat-window" class="flex-grow-1 overflow-auto mb-3 p-3 border rounded" style="background-color: #333; height: calc(100vh - 180px);">
                 <!-- 채팅 메시지 표시 영역 -->
             </div>
             <div class="input-group">

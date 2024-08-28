@@ -1,14 +1,15 @@
 
 window.addEventListener('DOMContentLoaded', event => {
     // Toggle the side navigation
-    const sidebarToggle = document.body.querySelector('#sidebarToggle');
-    if (sidebarToggle) {
-        sidebarToggle.addEventListener('click', event => {
-            event.preventDefault();
-            document.body.classList.toggle('sb-sidenav-toggled');
-            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-        });
-    }
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const content = document.querySelector('.flex-grow-1');
+    
+    sidebarToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        sidebar.classList.toggle('d-none');
+        content.classList.toggle('ml-0');
+    });
 
     // Chatbot functionality
     const sendBtn = document.getElementById('send-btn');
