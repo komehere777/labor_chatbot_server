@@ -23,6 +23,12 @@
       .delete-chat:hover {
           opacity: 1;
       }
+      .font-white {
+          color: white;
+      }
+      .font-white:hover {
+          color: black;
+      }
     </style>
   </head>
   <body>
@@ -53,9 +59,30 @@
       </div>
 
       <div class="flex-grow-1 d-flex flex-column">
-        <div class="p-2" style="background-color: #1e1e1e;">
-          <button class="btn btn-link btn-sm text-white" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1e1e1e;">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <button class="btn btn-link btn-sm text-white" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          ⚙️
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color: #1e1e1e;">
+                          <li><a class="dropdown-item font-white" href="{{ url_for('profile') }}">프로필</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item font-white" href="{{ url_for('logout') }}">로그아웃</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item font-white" href="{{ url_for('login') }}">계정전환</a></li>
+                      </ul>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
         <div class="flex-grow-1">
           {% block content %}{% endblock %}
         </div>
