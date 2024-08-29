@@ -5,11 +5,33 @@ window.addEventListener('DOMContentLoaded', event => {
     const sidebar = document.getElementById('sidebar');
     const content = document.querySelector('.flex-grow-1');
     
-    sidebarToggle.addEventListener('click', function(e) {
-        e.preventDefault();
+    function toggleSidebar() {
         sidebar.classList.toggle('d-none');
         content.classList.toggle('ml-0');
+    }
+
+    sidebarToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleSidebar();
     });
+
+    function checkWidth() {
+        if (window.innerWidth <= 768) {  // 768px는 일반적인 태블릿 크기입니다. 필요에 따라 조정 가능합니다.
+            if (!sidebar.classList.contains('d-none')) {
+                toggleSidebar();
+            }
+        } else {
+            if (sidebar.classList.contains('d-none')) {
+                toggleSidebar();
+            }
+        }
+    }
+
+    // 초기 로드 시 체크
+    checkWidth();
+
+    // 창 크기가 변경될 때마다 체크
+    window.addEventListener('resize', checkWidth);
 
     // Chatbot functionality
     const sendBtn = document.getElementById('send-btn');
