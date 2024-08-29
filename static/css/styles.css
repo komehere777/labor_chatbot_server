@@ -11297,7 +11297,7 @@ body {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-  max-width: 70%;
+  max-width: 95%;
 }
 
 .user-message {
@@ -11305,6 +11305,8 @@ body {
   color: #ffffff;
   align-self: flex-end;
   text-align: right;
+  max-width: fit-content;
+  float: right;
 }
 
 .ai-message {
@@ -11312,4 +11314,6 @@ body {
   color: #ffffff;
   align-self: flex-start;
   text-align: left;
+  max-width: 95%;
+  float: left;
 }
