@@ -161,7 +161,7 @@ def history(history_id):
     history = get_user_chat_historys(session['username']) # 유저의 전체 채팅 내역 로드
     chat = get_user_chat(history_id) # 해당 채팅만 로드
     print(chat)
-    return render_template('history.html', history = history, chat = chat)
+    return render_template('history.html', history = history, chat = chat, user = current_user)
 
 @app.route("/profile", methods=["GET", "POST"])
 @login_required
