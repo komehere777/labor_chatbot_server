@@ -9,10 +9,18 @@ from model import get_all_contents, add_chat, update_chat
 import os
 from langchain import hub
 import json
-from config import OPENAI_API_KEY, LANGSMITH_API_KEY
+from config import (
+    OPENAI_API_KEY,
+    LANGSMITH_API_KEY,
+    LANGCHAIN_PROJECT_NAME,
+    LANCHAIN_ENDPOINT,
+)
 
 os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
 os.environ['LANGSMITH_API_KEY'] = LANGSMITH_API_KEY
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGCHAIN_PROJECT"] = LANGCHAIN_PROJECT_NAME
+os.environ["LANGCHAIN_ENDPOINT"] = LANCHAIN_ENDPOINT
 
 VECTORSTORE_PATH = "vectorstore.faiss"
 
