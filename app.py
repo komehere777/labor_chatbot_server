@@ -75,7 +75,7 @@ def chat():
     # 로그인 된 유저의 채팅 내역 가져오는 부분
     history = get_user_chat_historys(current_user.username)
 
-    return render_template('chat.html', history = history)
+    return render_template('chat.html', history = history, user = current_user)
 
 @app.route("/check_auth")
 def check_auth():

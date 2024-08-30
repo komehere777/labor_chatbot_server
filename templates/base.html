@@ -26,6 +26,9 @@
       .font-white {
         color: white !important;
       }
+      .font-white:hover {
+        color: black !important;
+      }
     </style>
   </head>
   <body>
@@ -66,7 +69,7 @@
               <ul class="navbar-nav ms-auto">
                   <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          ⚙️
+                          {{ user.username }} ⚙️
                       </a>
                       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color: #1e1e1e;">
                           <li><a class="dropdown-item font-white" href="{{ url_for('profile') }}">프로필</a></li>
