@@ -11300,6 +11300,10 @@ body {
   max-width: 95%;
 }
 
+.message + .message {
+  margin-top: 10px; /* 메시지 사이 간격 */
+}
+
 .user-message {
   background-color: #007bff;
   color: #ffffff;

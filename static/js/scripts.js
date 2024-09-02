@@ -47,7 +47,13 @@ window.addEventListener('DOMContentLoaded', event => {
             messageElement.classList.add('ai-message');
         }
         messageElement.innerHTML = message;
+
+        // 새로운 줄 추가
+        const lineBreak = document.createElement('div');
+        lineBreak.style.clear = 'both'; // float를 초기화하여 새로운 줄로 시작
+
         chatWindow.appendChild(messageElement);
+        chatWindow.appendChild(lineBreak); // 메시지 사이에 줄바꿈을 추가
         chatWindow.scrollTop = chatWindow.scrollHeight;
     }
 
