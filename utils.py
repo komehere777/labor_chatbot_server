@@ -64,7 +64,7 @@ def get_ai_response(user_input, chat_history):
     context = get_relevant_sections(user_input)
 
     # LLM 생성
-    llm = ChatOpenAI(model_name="gpt-4o-mini-2024-07-18", temperature=0)
+    llm = ChatOpenAI(model_name="gpt-4o-0806", temperature=0)
 
     # 예제 프롬프트 생성
     example_prompt_template = PromptTemplate(
